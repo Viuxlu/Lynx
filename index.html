@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lynx Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('./LYNX.png'); /* Add the path to your lynx background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            padding: 0.5em;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 1em;
+            margin: 0 1em;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: #00bcd4;
+        }
+
+        section {
+            position: relative;
+            padding: 2em;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 600px; /* Adjust the margin-bottom for more spacing */
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .info-tab {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: black;
+            color: white;
+            padding: 0.5em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .info-tab:hover {
+            background-color: #333;
+        }
+
+        .info-content {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 1em;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+        }
+
+        .info-content p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Lynx Website</h1>
+    </header>
+
+    <nav>
+        <a onclick="scrollToSection('home')">Home</a>
+        <a onclick="scrollToSection('about')">About</a>
+        <a onclick="scrollToSection('services')">Services</a>
+        <a onclick="scrollToSection('contact')">Contact</a>
+    </nav>
+
+    <section id="home">
+        <h2>Welcome to Lynx!</h2>
+        <p>Discover the beauty of nature with Lynx. We provide immersive experiences that connect you with the wild.</p>
+        <p>Our expert guides and state-of-the-art equipment ensure you have a memorable and safe adventure.</p>
+        <p>Explore our website to learn more about Lynx and the exciting opportunities we offer!</p>
+        <div class="info-tab" onclick="toggleInfo('home-info')">Info</div>
+        <div class="info-content" id="home-info">
+            <p>This is the Home section. You can customize the content here.</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Lynx</h2>
+        <p>Lynx is a leading nature exploration company dedicated to providing unique and unforgettable experiences in the wild.</p>
+        <p>Founded in 2005, our team of passionate experts is committed to promoting environmental conservation and fostering a deep appreciation for nature.</p>
+        <p>Join us on a journey to discover the wonders of the natural world!</p>
+        <div class="info-tab" onclick="toggleInfo('about-info')">Info</div>
+        <div class="info-content" id="about-info">
+            <p>This is the About section. You can provide information about Lynx here.</p>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <p>At Lynx, we offer a range of services to cater to nature enthusiasts and adventure seekers:</p>
+        <ul>
+            <li>Guided Wildlife Tours</li>
+            <li>Hiking and Camping Expeditions</li>
+            <li>Bird Watching Adventures</li>
+            <li>Photography Workshops</li>
+            <li>Customized Nature Retreats</li>
+        </ul>
+        <p>Explore our services and embark on an unforgettable journey with Lynx!</p>
+        <div class="info-tab" onclick="toggleInfo('services-info')">Info</div>
+        <div class="info-content" id="services-info">
+            <p>This is the Services section. Customize this section to showcase your services.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions or want to book an adventure with Lynx? Reach out to us!</p>
+        <p>Email: info@lynxadventures.com</p>
+        <p>Phone: (555) 123-4567</p>
+        <p>Visit our office at 123 Nature Street, Wilderness City</p>
+        <p>Follow us on social media for the latest updates:</p>
+        <div>
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+        <div class="info-tab" onclick="toggleInfo('contact-info')">Info</div>
+        <div class="info-content" id="contact-info">
+            <p>This is the Contact section. Provide contact information and a form here.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Lynx Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function scrollToSection(sectionId) {
+            var section = document.getElementById(sectionId);
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function toggleInfo(infoId) {
+            var infoContent = document.getElementById(infoId);
+            infoContent.style.display = infoContent.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+
+</body>
+
+</html>
